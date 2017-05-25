@@ -6,29 +6,29 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 
 public class MyGdxGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
+	Stage stage;
 	
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		Square mySquare = new Square();
+		stage = new Stage();
+		stage.addActor(mySquare);
+		Gdx.input.setInputProcessor(stage);
 	}
 
 	@Override
 	public void render () {
 		Gdx.gl.glClearColor(Color.BLACK.r, Color.BLACK.g, Color.BLACK.b, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		stage.act();Gdx.graphics.getDeltaTime();
+		stage.draw();
 	}
 	
 	@Override
 	public void dispose () {
-		batch.dispose();
-		img.dispose();
+		stage.dispose();
 	}
 }
