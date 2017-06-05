@@ -28,7 +28,7 @@ public class Square extends Actor{
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 if (event.getTarget() instanceof Square){
                     MoveToAction moveToAction = new MoveToAction();
-                    moveToAction.setPosition(500f,500f);
+                    moveToAction.setPosition(getX()+500,getY()+500);
                     moveToAction.setDuration(3f);
 
                     ScaleToAction scaleToAction = new ScaleToAction();
@@ -37,8 +37,9 @@ public class Square extends Actor{
                     SequenceAction sequenceAction = new SequenceAction();
                     sequenceAction.addAction(moveToAction);
                     sequenceAction.addAction(scaleToAction);
-                    sequenceAction.addAction(Actions.removeActor());
+                    //sequenceAction.addAction(Actions.removeActor());
                     addAction(sequenceAction);
+
                 }
                 return true;
             }
