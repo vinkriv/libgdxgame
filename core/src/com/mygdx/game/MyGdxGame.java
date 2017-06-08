@@ -27,7 +27,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		textureAtlas = new TextureAtlas(Gdx.files.internal("SpriteSheet/girlrunning.atlas"));
+		textureAtlas = new TextureAtlas(Gdx.files.internal("SpriteSheet/goku.atlas"));
 		stillAnimation = new Animation(1/10f,textureAtlas.getRegions());
 		//This will display 10 frames in one second
 		//1/20 will display 20 frames in one second
